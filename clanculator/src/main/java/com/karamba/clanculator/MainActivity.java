@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.karamba.clanculator.data.Data.Item;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -47,10 +48,11 @@ public class MainActivity extends ActionBarActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         final Fragment fragment;
+        final int townHallLevel = 5;
         if (position == 0) {
-            fragment = new ItemListFragment();
+            fragment = ItemListFragment.newInstance(townHallLevel, Item.CANNON);
         } else {
-            fragment = PlaceholderFragment.newInstance(position + 1);
+            fragment = ItemListFragment.newInstance(townHallLevel, Item.ARCHER_TOWER);
         }
 
         fragmentManager.beginTransaction()

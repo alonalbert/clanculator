@@ -68,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             for (Item item : group.mItems) {
                 values.put(Inventory.TYPE, item.mType);
                 values.put(Inventory.LEVEL, 0);
-                final int maxItems = item.mPerTownHallLevel[item.mPerTownHallLevel.length - 1];
+                final int maxItems = item.mTownHallLevelInfos[item.mTownHallLevelInfos.length - 1].mMaxItems;
                 for (int i = 0; i < maxItems; i++) {
                     values.put(Inventory.NUMBER, i);
                     inserter.insert(values);

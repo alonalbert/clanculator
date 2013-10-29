@@ -1,6 +1,7 @@
 package com.karamba.clanculator.data;
 
 
+import android.util.SparseArray;
 import com.karamba.clanculator.R;
 
 /**
@@ -29,13 +30,13 @@ public class Data {
 
         public final int mType;
         public final int mNameResId;
-        public final int[] mPerTownHallLevel;
+        public final TownHallLevelInfo[] mTownHallLevelInfos;
         public final ItemLevel[] mLevels;
 
-        public Item(int type, int nameResId, int[] perTownHallLevel, ItemLevel[] levels) {
+        public Item(int type, int nameResId, TownHallLevelInfo[] townHallLevelInfos, ItemLevel[] levels) {
             mType = type;
             mNameResId = nameResId;
-            mPerTownHallLevel = perTownHallLevel;
+            mTownHallLevelInfos = townHallLevelInfos;
             mLevels = levels;
         }
     }
@@ -49,14 +50,36 @@ public class Data {
             mItems = items;
         }
     }
+
+    public static class TownHallLevelInfo {
+        public final int mMaxItems;
+        public final int mMaxLevel;
+
+        public TownHallLevelInfo(int maxItems, int maxLevel) {
+            mMaxItems = maxItems;
+            mMaxLevel = maxLevel;
+        }
+    }
+
     public static final Group[] GROUPS = new Group[] {
             new Group(R.string.defense, new Item[] {
                     new Item(
                             Item.CANNON,
                             R.string.cannon,
-                            new int[]{2, 2, 2, 2, 3, 3, 5, 5, 5, 6},
+                            new TownHallLevelInfo[] {
+                                    new TownHallLevelInfo(2, 2),
+                                    new TownHallLevelInfo(2, 3),
+                                    new TownHallLevelInfo(2, 4),
+                                    new TownHallLevelInfo(3, 5),
+                                    new TownHallLevelInfo(3, 6),
+                                    new TownHallLevelInfo(5, 7),
+                                    new TownHallLevelInfo(5, 8),
+                                    new TownHallLevelInfo(5, 10),
+                                    new TownHallLevelInfo(5, 11),
+                                    new TownHallLevelInfo(6, 12),
+                            },
                             new ItemLevel[]{
-                                    new ItemLevel(240, 0, 0, Time.MIN_1, R.drawable.cannon1),
+                                    new ItemLevel(250, 0, 0, Time.MIN_1, R.drawable.cannon1),
                                     new ItemLevel(1000, 0, 0, Time.MIN_15, R.drawable.cannon2),
                                     new ItemLevel(4000, 0, 0, Time.MIN_45, R.drawable.cannon3),
                                     new ItemLevel(16000, 0, 0, Time.HOUR_2, R.drawable.cannon4),
@@ -72,7 +95,18 @@ public class Data {
                     new Item(
                             Item.ARCHER_TOWER,
                             R.string.archer_tower,
-                            new int[]{2, 2, 2, 2, 3, 3, 5, 5, 5, 6},
+                            new TownHallLevelInfo[] {
+                                    new TownHallLevelInfo(0, 0),
+                                    new TownHallLevelInfo(1, 2),
+                                    new TownHallLevelInfo(1, 3),
+                                    new TownHallLevelInfo(2, 4),
+                                    new TownHallLevelInfo(3, 6),
+                                    new TownHallLevelInfo(3, 7),
+                                    new TownHallLevelInfo(4, 8),
+                                    new TownHallLevelInfo(5, 10),
+                                    new TownHallLevelInfo(6, 11),
+                                    new TownHallLevelInfo(7, 12),
+                            },
                             new ItemLevel[]{
                                     new ItemLevel(240, 0, 0, Time.MIN_1, R.drawable.archer_tower1),
                                     new ItemLevel(1000, 0, 0, Time.MIN_15, R.drawable.archer_tower2),
@@ -88,4 +122,14 @@ public class Data {
                             }),
             }),
     };
+
+    public static final SparseArray<Item> ITEMS = new SparseArray<Item>();
+
+    static {
+        for (Group group : GROUPS) {
+            for (Item item : group.mItems) {
+                ITEMS.put(item.mType, item);
+            }
+        }
+    }
 }

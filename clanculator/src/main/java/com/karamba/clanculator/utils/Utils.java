@@ -1,6 +1,7 @@
 package com.karamba.clanculator.utils;
 
 import android.text.TextUtils;
+import com.karamba.clanculator.data.Time;
 
 import java.util.LinkedList;
 
@@ -53,5 +54,29 @@ public class Utils {
             }
         }
         return TextUtils.join("_", stringList);
+    }
+
+    public static String longToAmount(long value) {
+        if (value < 1000) {
+            return String.valueOf(value);
+        } else if (value < 1000000) {
+            return String.valueOf((int) Math.round(((double) value) / 1000)) + "k";
+        } else if (value < 1000000000) {
+            return String.valueOf((int) Math.round(((double) value) / 1000000)) + "m";
+        } else {
+            return String.valueOf((int) Math.round(((double) value) / 1000000000)) + "b";
+        }
+    }
+
+    public static String longToTime(long value) {
+        if (value < Time.MIN_1) {
+            return String.valueOf(value) + "s";
+        } else if (value < Time.HOUR_1) {
+            return String.valueOf((int) Math.round(((double) value) / Time.MIN_1)) + "m";
+        } else if (value < Time.DAY_1) {
+            return String.valueOf((int) Math.round(((double) value) / Time.HOUR_1)) + "h";
+        } else {
+            return String.valueOf((int) Math.round(((double) value) / Time.DAY_1)) + "d";
+        }
     }
 }

@@ -27,7 +27,7 @@
       android:layout_gravity="center_vertical"
       android:layout_marginLeft="10dp"
       android:textSize="24dp"
-      android:text="@string/level_indicator"/>
+      android:text="Level 1"/>
 
   <ImageView
       android:id="@+id/resourceImage"
