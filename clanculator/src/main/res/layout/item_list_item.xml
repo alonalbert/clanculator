@@ -5,20 +5,28 @@
               android:layout_width="match_parent"
               android:layout_height="50dp">
 
-  <ImageView
-      android:id="@+id/itemImage"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:background="@drawable/cannon1"/>
 
-  <TextView
-      android:id="@+id/number"
+  <LinearLayout
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
-      android:layout_gravity="bottom"
-      android:textSize="15dp"
-      android:text="1"/>
+      android:orientation="horizontal"
+      android:minWidth="65dp">
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:layout_gravity="center"
+        android:background="@drawable/cannon1"/>
+    <TextView
+        android:id="@+id/number"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom"
+        android:textSize="15dp"
+        android:text="1"/>
+  </LinearLayout>
+
 
   <TextView
       android:id="@+id/level"
