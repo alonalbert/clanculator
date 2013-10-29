@@ -16,6 +16,7 @@ public interface Contract {
     public interface Inventory {
         public static final String TABLE_NAME = Utils.camelCaseToUnderscore(Inventory.class.getSimpleName());
 
+        public static final String _ID = "_id";
         public static final String TYPE = "type";
         public static final String NUMBER = "number";
         public static final String LEVEL = "level";

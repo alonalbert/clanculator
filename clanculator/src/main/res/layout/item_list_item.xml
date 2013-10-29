@@ -3,16 +3,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="50dp">
 
   <ImageView
+      android:id="@+id/itemImage"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:id="@+id/imageView"
       android:background="@drawable/cannon1"/>
 
   <TextView
+      android:id="@+id/number"
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:layout_gravity="bottom"
@@ -20,22 +21,24 @@
       android:text="1"/>
 
   <TextView
+      android:id="@+id/level"
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:layout_gravity="center_vertical"
       android:layout_marginLeft="10dp"
       android:textSize="24dp"
-      android:text="Level 0"/>
+      android:text="@string/level_indicator"/>
 
   <ImageView
+      android:id="@+id/resourceImage"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:layout_marginLeft="5dp"
-      android:id="@+id/imageView"
       android:background="@drawable/gold"/>
 
   <TextView
+      android:id="@+id/resource"
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:layout_gravity="center_vertical"
@@ -44,18 +47,19 @@
       android:text="100k"/>
 
   <ImageView
+      android:id="@+id/timeImage"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:layout_marginLeft="5dp"
-      android:id="@+id/imageView"
       android:background="@drawable/time"/>
 
   <TextView
+      android:id="@+id/time"
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:layout_gravity="center_vertical"
       android:layout_margin="5dp"
       android:textSize="20dp"
-      android:text="100k"/>
+      android:text="15m"/>
 </LinearLayout>

@@ -50,6 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + ");");
 
         db.execSQL("CREATE TABLE " + Inventory.TABLE_NAME + " ("
+                + Inventory._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + Inventory.TYPE + " INTEGER NOT NULL, "
                 + Inventory.NUMBER + " INTEGER NOT NULL, "
                 + Inventory.LEVEL + " INTEGER NOT NULL"
